@@ -7,8 +7,6 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { mockUserSettings } from 'src/__mocks__/mockUserSettings';
-import { mockUsers } from 'src/__mocks__/mockUsers';
 import { User } from '../graphql/models/User';
 import { UserSetting } from '../graphql/models/UserSetting';
 import { CreateUserInput } from '../graphql/utils/CreateUserInput';
@@ -22,7 +20,7 @@ export class UserResolver {
 
   @Query(() => User, { nullable: true })
   getUserById(@Args('id', { type: () => Int }) id: number) {
-    return mockUsers.find((u) => u.id === id);
+    return this.userService.getUsersById(id);
   }
 
   @Query(() => [User])

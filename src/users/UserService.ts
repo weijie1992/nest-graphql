@@ -12,6 +12,9 @@ export class UserService {
   getUsers() {
     return this.usersRepository.find();
   }
+  getUsersById(id: number) {
+    return this.usersRepository.findOneBy({ id });
+  }
   createUser(createUserData: CreateUserInput) {
     const newUser = this.usersRepository.create(createUserData);
     return this.usersRepository.save(newUser);
