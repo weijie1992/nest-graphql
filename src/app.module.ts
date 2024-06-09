@@ -21,6 +21,7 @@ import { UsersModule } from './users/users.module';
       database: 'graphql-tutorial',
       entities: [User, UserSetting],
       synchronize: process.env.NODE_ENV === 'production' ? false : true,
+      logging: true,
     }),
     UsersModule,
   ],
