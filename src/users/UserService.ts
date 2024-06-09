@@ -12,6 +12,9 @@ export class UserService {
   getUsers() {
     return this.usersRepository.find();
   }
+  // getUsers() {
+  //   return this.usersRepository.find({ relations: ['settings'] });
+  // }
   getUsersById(id: number) {
     return this.usersRepository.findOneBy({ id });
   }

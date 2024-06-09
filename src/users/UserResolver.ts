@@ -7,8 +7,8 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
+import { UserSetting } from 'src/graphql/models/UserSetting';
 import { User } from '../graphql/models/User';
-import { UserSetting } from '../graphql/models/UserSetting';
 import { CreateUserInput } from '../graphql/utils/CreateUserInput';
 import { UserService } from './UserService';
 import { UserSettingService } from './UserSettingService';
