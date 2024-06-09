@@ -11,12 +11,16 @@ import { User } from '../graphql/models/User';
 import { UserSetting } from '../graphql/models/UserSetting';
 import { CreateUserInput } from '../graphql/utils/CreateUserInput';
 import { UserService } from './UserService';
+import { UserSettingService } from './UserSettingService';
 
 export const incrementalId = 3;
 
 @Resolver(() => User)
 export class UserResolver {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private userSettingsService: UserSettingService,
+  ) {}
 
   @Query(() => User, { nullable: true })
   getUserById(@Args('id', { type: () => Int }) id: number) {
@@ -30,8 +34,7 @@ export class UserResolver {
 
   @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
   getUserSettings(@Parent() user: User) {
-    console.log('user', user);
-    return mockUserSettings.find((setting) => setting.userId === user.id);
+    return this.userSettingsService.getUserSettingById(user.id);
   }
 
   @Mutation(() => User)
