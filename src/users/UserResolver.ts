@@ -32,7 +32,7 @@ export class UserResolver {
     return this.userService.getUsers();
   }
 
-  @Query(() => User, { nullable: true })
+  @Query(() => [User], { nullable: true })
   getUserByBirthDate(@Args('birthDate', { type: () => Date }) birthDate: Date) {
     return this.userService.getUserByBirthDate(birthDate);
   }

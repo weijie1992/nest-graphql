@@ -28,6 +28,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
     "graphql": "^16.8.1",
+    "luxon": "^3.4.4",
     "mysql2": "^3.10.0",
     "oracledb": "^6.5.1",
     "reflect-metadata": "^0.2.0",

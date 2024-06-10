@@ -23,6 +23,6 @@ export class UserService {
     return this.usersRepository.save(newUser);
   }
   getUserByBirthDate(birthDate: Date) {
-    return this.usersRepository.findOneBy({ birthDate });
+    return this.usersRepository.findBy({ birthDate });
   }
 }

@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { DateTransformer } from 'src/helper/date-transformer';
 import {
   Column,
   Entity,
@@ -23,6 +24,7 @@ export class User {
   @Field({ nullable: true })
   displayName?: string;
 
+  @Column({ nullable: true, transformer: new DateTransformer() })
   @Column({ nullable: true })
   @Field({ nullable: true })
   birthDate?: Date;

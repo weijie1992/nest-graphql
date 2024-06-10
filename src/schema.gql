@@ -24,7 +24,7 @@ scalar DateTime
 type Query {
   getUserById(id: Int!): User
   getUsers: [User!]!
-  getUserByBirthDate(birthDate: DateTime!): User
+  getUserByBirthDate(birthDate: DateTime!): [User!]
 }
 
 type Mutation {
