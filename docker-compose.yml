@@ -14,5 +14,18 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+  oracle:
+    image: registry.sgts.gitlab-dedicated.com/wog/mom/wins/wins-po/app-wp/intranet-data-layer/oracle/database:19.3.0-ee-slim-faststart
+    container_name: test_oracle_db
+    environment:
+      - ORACLE_DATABASE=ORCLPDB1
+      - ORACLE_PASSWORD=testuser
+      - TZ=Asia/Singapore
+    volumes:
+      - ./database/scripts:/container-entrypoint-initdb.d
+    ports:
+      - '127.0.0.1:1522:1521'
+      - '127.0.0.1:5507:5500'
+
 volumes:
   mysql_data:
