@@ -32,6 +32,11 @@ export class UserResolver {
     return this.userService.getUsers();
   }
 
+  @Query(() => User, { nullable: true })
+  getUserByBirthDate(@Args('birthDate', { type: () => Date }) birthDate: Date) {
+    return this.userService.getUserByBirthDate(birthDate);
+  }
+
   @ResolveField(() => UserSetting, { name: 'settings', nullable: true })
   getUserSettings(@Parent() user: User) {
     return this.userSettingsService.getUserSettingById(user.id);

@@ -22,4 +22,7 @@ export class UserService {
     const newUser = this.usersRepository.create(createUserData);
     return this.usersRepository.save(newUser);
   }
+  getUserByBirthDate(birthDate: Date) {
+    return this.usersRepository.findOneBy({ birthDate });
+  }
 }

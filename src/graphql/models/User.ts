@@ -23,6 +23,10 @@ export class User {
   @Field({ nullable: true })
   displayName?: string;
 
+  @Column({ nullable: true })
+  @Field({ nullable: true })
+  birthDate?: Date;
+
   @OneToOne(() => UserSetting)
   @JoinColumn()
   @Field({ nullable: true })
